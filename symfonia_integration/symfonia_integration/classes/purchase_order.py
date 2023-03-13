@@ -9,5 +9,3 @@ class test:
 
   def testFunc(self):
     frappe.msgprint("Test")
-  def testFunc2(self):
-    frappe.msgprint("Test2")
