@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include symfonia_integration *.css
+recursive-include symfonia_integration *.csv
+recursive-include symfonia_integration *.html
+recursive-include symfonia_integration *.ico
+recursive-include symfonia_integration *.js
+recursive-include symfonia_integration *.json
+recursive-include symfonia_integration *.md
+recursive-include symfonia_integration *.png
+recursive-include symfonia_integration *.py
+recursive-include symfonia_integration *.svg
+recursive-include symfonia_integration *.txt
+recursive-exclude symfonia_integration *.pyc
