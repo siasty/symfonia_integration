@@ -8,4 +8,6 @@ from frappe.utils import flt
 class test:
 
   def testFunc(self):
-    frappe.msgprint("This got submitted")
+    frappe.msgprint("Test")
+  def testFunc2(self):
+    frappe.msgprint("Test2")

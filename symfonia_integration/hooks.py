@@ -201,7 +201,7 @@ app_license = "MIT"
 # ]
 doc_events = {
 	"Customer": {
-		"after_insert": "symfonia_integration.symfonia_integration.classes.purchase_order.py.testFunc",
-        "on_submit":  "symfonia_integration.symfonia_integration.classes.purchase_order.py.testFunc"
+		"after_insert": "symfonia_integration.symfonia_integration.classes.purchase_order.testFunc",
+        "on_submit":  "symfonia_integration.symfonia_integration.classes.purchase_order.testFunc2"
 	},
 }
