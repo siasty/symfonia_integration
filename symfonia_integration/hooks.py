@@ -199,3 +199,9 @@ app_license = "MIT"
 # auth_hooks = [
 #	"symfonia_integration.auth.validate"
 # ]
+doc_events = {
+	"Customer": {
+		"after_insert": "symfonia_integration.symfonia_integration.classes.purchase_order.py.testFunc",
+        "on_submit":  "symfonia_integration.symfonia_integration.classes.purchase_order.py.testFunc"
+	},
+}
