@@ -7,5 +7,5 @@ from frappe.utils import flt
 
 class test:
   @staticmethod
-  def testFunc(self):
+  def testFunc():
     frappe.msgprint("Test")
