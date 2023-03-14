@@ -6,4 +6,4 @@ from frappe.model.document import Document
 from frappe.utils import flt
 
 def testFunc(doc, state):
-  frappe.msgprint("Test - par doc:"+doc+" state:"+state)
+  frappe.msgprint("Test")
