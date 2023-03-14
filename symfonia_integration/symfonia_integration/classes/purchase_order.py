@@ -6,6 +6,6 @@ from frappe.model.document import Document
 from frappe.utils import flt
 
 class test:
-
+  @staticmethod
   def testFunc(self):
     frappe.msgprint("Test")
