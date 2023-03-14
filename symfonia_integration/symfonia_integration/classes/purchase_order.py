@@ -5,7 +5,6 @@ import calendar
 from frappe.model.document import Document
 from frappe.utils import flt
 
-class test:
-  @staticmethod
+class test(Document):
   def testFunc():
     frappe.msgprint("Test")
