@@ -6,5 +6,7 @@ from frappe.model.document import Document
 from frappe.utils import flt
 
 class test(Document):
+  pass
+
   def testFunc():
     frappe.msgprint("Test")
