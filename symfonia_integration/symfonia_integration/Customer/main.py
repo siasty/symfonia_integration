@@ -8,7 +8,7 @@ import os
 def addCustomer(customer, state):
   # Get the current working directory
   cwd = os.getcwd()
-  app_path = os.path(__file__).resolve().parent
+  app_path = os.path(cwd).resolve().parent
 #  with open('globals.json') as f:
 #    content = json.load(f)
 
