@@ -8,8 +8,8 @@ import os
 def addCustomer(customer, state):
   # Get the current working directory
   cwd = os.getcwd()
-
+  app_path = os.path(__file__).resolve().parent
 #  with open('globals.json') as f:
 #    content = json.load(f)
 
-  frappe.msgprint(cwd)
+  frappe.msgprint(str(app_path))
