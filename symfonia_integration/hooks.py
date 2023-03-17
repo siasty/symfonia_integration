@@ -64,13 +64,13 @@ app_license = "MIT"
 # ------------
 
 # before_install = "symfonia_integration.install.before_install"
-# after_install = "symfonia_integration.install.after_install"
+after_install = "symfonia_integration.install.after_install.install"
 
 # Uninstallation
 # ------------
 
 # before_uninstall = "symfonia_integration.uninstall.before_uninstall"
-# after_uninstall = "symfonia_integration.uninstall.after_uninstall"
+after_uninstall = "symfonia_integration.install.after_uninstall.uinstall"
 
 # Desk Notifications
 # ------------------
@@ -109,6 +109,12 @@ app_license = "MIT"
 #		"on_trash": "method"
 #	}
 # }
+
+doc_events = {
+	"Customer": {
+		"after_insert": "symfonia_integration.symfonia_integration.Customer.main.addCustomer",
+	},
+}
 
 # Scheduled Tasks
 # ---------------
@@ -199,8 +205,3 @@ app_license = "MIT"
 # auth_hooks = [
 #	"symfonia_integration.auth.validate"
 # ]
-doc_events = {
-	"Customer": {
-		"after_insert": "symfonia_integration.symfonia_integration.Customer.main.addCustomer",
-	},
-}
