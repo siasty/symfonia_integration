@@ -1,9 +1,11 @@
-from __future__ import unicode_literals
+import frappe
+from frappe import _
+from frappe.custom.doctype.custom_field.custom_field import create_custom_field
 
 def install():
-  from frappe.custom.doctype.custom_field.custom_field import create_custom_field
   create_custom_field("Customer", {
-    "label": "REGON",
-    "fieldtype": "Text",
-    "lenght":"9"
-  })
+		"label": _("Regon"),
+		"fieldname": "regon",
+		"fieldtype": "Data",
+		"insert_after": "tax_id"
+		})
