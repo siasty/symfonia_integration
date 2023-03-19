@@ -70,7 +70,7 @@ after_install = "symfonia_integration.install.after_install.install"
 # ------------
 
 # before_uninstall = "symfonia_integration.uninstall.before_uninstall"
-after_uninstall = "symfonia_integration.install.after_uninstall.uinstall"
+after_uninstall = "symfonia_integration.install.after_uinstall.uinstall"
 
 # Desk Notifications
 # ------------------
