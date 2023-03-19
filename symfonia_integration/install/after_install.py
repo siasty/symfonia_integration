@@ -1,6 +1,6 @@
 import frappe
 from frappe import _
-from frappe.custom.doctype.custom_field.custom_field import create_custom_field
+from frappe.custom.doctype.custom_field.custom_field import create_custom_fields
 
 def install():
     custom_fields = {
@@ -13,5 +13,5 @@ def install():
             }
         ]
     }
-    create_custom_field(custom_fields)
+    create_custom_fields(custom_fields)
 
