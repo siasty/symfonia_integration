@@ -10,6 +10,19 @@ def install():
                 "fieldname": "regon",
                 "fieldtype": "Data",
 	            "insert_after": "tax_id"
+            },
+            {
+                "label": "Pesel",
+                "fieldname": "pesel",
+                "fieldtype": "Data",
+	            "insert_after": "regon"
+            },
+            {
+                "label": "Split Payment",
+                "fieldname": "split_payment",
+                "fieldtype": "Check",
+		        "default": 0,
+	            "insert_after": "pesel"
             }
         ]
     }
