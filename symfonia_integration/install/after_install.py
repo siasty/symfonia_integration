@@ -13,5 +13,5 @@ def install():
             }
         ]
     }
-    create_custom_fields(custom_fields)
+    create_custom_field(custom_fields)
 
