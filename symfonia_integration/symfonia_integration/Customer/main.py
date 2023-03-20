@@ -6,7 +6,7 @@ import os
 
 
 def addCustomer(customer,state):
-  frappe.msgprint(str(customer))
+  frappe.msgprint(str(customer.name))
 
 
 def convert_dict_to_class(dict_data, class_name):
