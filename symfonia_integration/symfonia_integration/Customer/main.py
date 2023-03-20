@@ -5,7 +5,7 @@ import json
 import os
 
 
-def addCustomer(customer):
+def addCustomer(customer,state):
   frappe.msgprint(str(customer))
 
 
