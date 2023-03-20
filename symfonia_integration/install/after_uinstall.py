@@ -9,5 +9,5 @@ def uinstall():
     for cf in custom_fields:
         print(cf.name)
     #frappe.delete_doc("Custom Field", cf.name)
-    #frappe.delete_doc("Custom Field", "Customer-regon")
-    #frappe.db.commit()
+    frappe.delete_doc("Custom Field", "Customer-split_payment")
+    frappe.db.commit()
