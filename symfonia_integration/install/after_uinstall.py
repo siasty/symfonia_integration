@@ -1,6 +1,8 @@
 import frappe
 from frappe import _
-from frappe.custom.doctype.custom_field.custom_field import delete_custom_field
 
 def uinstall():
-    delete_custom_field("Customer", "regon")
+    _.db.delete("Customer", {"name": "regon"})
+    _.db.delete("Customer", {"name": "pesel"})
+    _.db.delete("Customer", {"name": "split_payment"})
+    _.db.commit()
