@@ -5,8 +5,8 @@ import json
 import os
 
 
-def addCustomer(customer, state):
-  frappe.msgprint(repr(customer))
+def addCustomer(customer):
+  frappe.msgprint(str(customer))
 
 
 def convert_dict_to_class(dict_data, class_name):
