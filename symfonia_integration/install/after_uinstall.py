@@ -2,7 +2,7 @@ import frappe
 from frappe import _
 
 def uinstall():
-    _.db.delete("Customer", {"name": "regon"})
-    _.db.delete("Customer", {"name": "pesel"})
-    _.db.delete("Customer", {"name": "split_payment"})
-    _.db.commit()
+    frappe.db.delete("Customer", {"name": "regon"})
+    frappe.db.delete("Customer", {"name": "pesel"})
+    frappe.db.delete("Customer", {"name": "split_payment"})
+    frappe.db.commit()
