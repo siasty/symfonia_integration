@@ -1,26 +1,11 @@
 from __future__ import unicode_literals
 import requests
 import frappe
-import json
-import os
+from Customer.model import *
 
 
-def addCustomer(customer,state):
-  frappe.msgprint(str(customer.name))
-
-
-def convert_dict_to_class(dict_data, class_name):
-  # Create an empty object of class_name using globals function
-  obj = globals()[class_name]()
-
-  for key, value in dict_data.items():
-    if isinstance(value, dict):
-      setattr(obj, key, convert_dict_to_class(value, key))
-    elif isinstance(value, list) and all(isinstance(item, dict) for item in value):
-      obj_list = []
-      for item in value:
-        obj_list.append(convert_dict_to_class(item, key))
-      setattr(obj, key, obj_list)
-    else:
-      setattr(obj, key, value)
-  return obj
+def addCustomer(customer, state):
+    SymfoniaObj = SymfoniaCustomerModel()
+    SymfoniaCustomerObj = SymfoniaObj.get_symfonia_customer_model()
+    SymfoniaCustomerObj.Name = customer.name
+    frappe.msgprint(str(customer.name))
