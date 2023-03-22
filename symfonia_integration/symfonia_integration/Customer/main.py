@@ -1,11 +1,36 @@
 from __future__ import unicode_literals
-import requests
 import frappe
+import json
 from Customer.model import *
+from frappe.contacts.doctype.address.address import Address
+from frappe.contacts.doctype.contact.contact import Contact
 
 
 def addCustomer(customer, state):
     SymfoniaObj = SymfoniaCustomerModel()
     SymfoniaCustomerObj = SymfoniaObj.get_symfonia_customer_model()
-    SymfoniaCustomerObj.Name = customer.name
-    frappe.msgprint(str(customer.name))
+    #map
+    SymfoniaCustomerObj.Name = customer.customer_name
+    SymfoniaCustomerObj.Code = customer.name
+    SymfoniaCustomerObj.NIP = customer.tax_id
+    SymfoniaCustomerObj.Regon = customer.regon
+    SymfoniaCustomerObj.Pesel = customer.pesel
+    
+    try:
+        customer.customer_primary_address
+    except NameError:
+        print("customer_primary_address is not set for "+ customer.name)
+    else:    
+        if customer.customer_primary_address is not None:
+            address = Address.get(customer.customer_primary_address)
+    try:
+        customer.customer_primary_contact
+    except NameError:
+        print("customer_primary_contact is not set for "+ customer.name)
+    else:  
+        if customer.customer_primary_contact is not None:
+            contact = Contact.get(customer.customer_primary_contact)
+    
+    test = json.dumps(SymfoniaCustomerObj.__dict__)
+    frappe.msgprint(test)
+#    frappe.msgprint(str(customer.name))

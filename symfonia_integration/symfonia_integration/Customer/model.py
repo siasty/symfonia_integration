@@ -4,31 +4,46 @@ import json
 class SymfoniaCustomerModel:
     def __customer_model(self):
         return {
+            "Id": 0,
             "Active": True,
             "Code": "",
             "Name": "",
-            "Vies": False,
-            "VATTaxPayer": True,
-            "SplitPayment": 0,
+            "Vies": True,
+            "VATTaxPayer": False,
             "NIP": "",
-            "Regon": "",
             "Pesel": "",
-            "CreditLimit": True,
+            "CreditLimit": False,
             "MaxCreditValue": 0,
             "CreditCurrency": "",
-            "Type": 0,
+            "PriceNegotiation": True,
+            "DefaultDiscountPercent": 0,
+            "PriceType": 1,
+            "PriceKind": 1,
+            "Type": 2,
+            "Note": "",
+            "Marker": 0,
+            "Due": 0,
+            "Obligation": 0,
+            "PaymentRegistry": {
+                "Id": 0,
+                "Code": ""
+            },
+            "PaymentForm": {
+                "Id": 0,
+                "Client": 0
+            },
             "Contact": {
                 "Name": "",
                 "Surname": "",
                 "Phone1": "",
                 "Phone2": "",
                 "Fax": "",
-                "Telex": "",
                 "Email": "",
                 "WWW": "",
                 "Facebook": ""
             },
-            "Address": {
+            "DefaultAddress": {
+                "Type": 1,
                 "Country": "",
                 "City": "",
                 "Province": "",
@@ -37,10 +52,25 @@ class SymfoniaCustomerModel:
                 "ApartmentNo": "",
                 "PostCode": ""
             },
-            "BankInfo": None
-        }       
-        
+            "CorrespondenceAddress": {
+                "Type": 2,
+                "Country": "",
+                "City": "",
+                "Province": "",
+                "Street": "",
+                "HouseNo": "",
+                "ApartmentNo": "",
+                "PostCode": ""
+            },
+            "BankInfo": {
+                "AccountNumber": "",
+                "BankName": "",
+                "SWIFT_BIC": ""
+            }
+        }
+
     def get_symfonia_customer_model(self):
         data = self.__customer_model()
         return type("Customer", (object,), data)
+
 
