@@ -1,4 +1,5 @@
 import json
+from types import SimpleNamespace
 from collections import namedtuple
 
 
@@ -70,14 +71,17 @@ class SymfoniaCustomerModel:
             }
         }
     
-    def __SymfoniaModelDecoder(symfoniaDict):
-        return namedtuple('X', symfoniaDict.keys())(*symfoniaDict.values())
-
-
     def get_symfonia_customer_model(self):
         data = self.__customer_model()
+        return MyObject(data)
+
    #     jsonToPy=json.dumps(data)
-   #     return json.loads(jsonToPy, object_hook=self.__SymfoniaModelDecoder)
-        return type("Customer", (object,), data)
+       # return json.loads(data, object_hook=lambda d: SimpleNamespace(**d))
+
+class MyObject:
+    def __init__(self, d=None):
+        if d is not None:
+            for key, value in d.items():
+                setattr(self, key, value)
 
 
