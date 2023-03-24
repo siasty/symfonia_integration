@@ -3,7 +3,7 @@ import frappe
 import json
 from frappe.contacts.doctype.address.address import Address
 from frappe.contacts.doctype.contact.contact import Contact
-from symfonia_integration.symfonia_integration.symfonia_integration.Customer.model import SymfoniaCustomerModel
+from symfonia_integration.symfonia_integration.Customer.model import SymfoniaCustomerModel
 
 
 def addCustomer(customer, state):
