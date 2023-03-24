@@ -1,7 +1,7 @@
 import json
-from types import SimpleNamespace
-from collections import namedtuple
 from symfonia_integration.helper.funtions import SymfoniaObjectConvert
+from automapper import mapper
+from frappe.desk.form.meta import get_meta
 
 
 class SymfoniaContractorModel:
@@ -112,6 +112,18 @@ class SymfoniaContractorModel:
 
     def get_symfonia_hmf_contractor_model(self):
         return SymfoniaObjectConvert(self.__HMF_Contractor_Model())
-    
+
     def get_symfonia_fkf_contractor_model(self):
         return SymfoniaObjectConvert(self.__FKF_Contractor_Model())
+
+    def set_maping(self, customer):
+        CustomerMeta = get_meta("Customer")
+        mapper.add(CustomerMeta,
+                   self.get_symfonia_hmf_contractor_model(),
+                   fields_mapping={"Code": "Customer.name",
+                                   "Name": "Customer.customer_name",
+                                   "NIP": "Customer.tax_id",
+                                #   "Regon":"Customer.regon",
+                                #   "Pesel":"Customer.pesel"
+                                   })
+        return mapper.map(customer, use_deepcopy=False)
