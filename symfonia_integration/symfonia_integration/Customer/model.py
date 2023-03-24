@@ -1,4 +1,5 @@
 import json
+from collections import namedtuple
 
 
 class SymfoniaCustomerModel:
@@ -68,9 +69,14 @@ class SymfoniaCustomerModel:
                 "SWIFT_BIC": ""
             }
         }
+    
+    def __SymfoniaModelDecoder(symfoniaDict):
+        return namedtuple('X', symfoniaDict.keys())(*symfoniaDict.values())
+
 
     def get_symfonia_customer_model(self):
-        data = self.__customer_model()
-        return type("Customer", (object,), data)
+        jsonData = self.__customer_model()
+        return json.loads(jsonData, object_hook=self.__SymfoniaModelDecoder)
+   #     return type("Customer", (object,), data)
 
 

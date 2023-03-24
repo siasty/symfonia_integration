@@ -31,6 +31,5 @@ def addCustomer(customer, state):
         if customer.customer_primary_contact is not None:
             contact = Contact.get(customer.customer_primary_contact)
     
-    test = json.dumps(SymfoniaCustomerObj.__dict__)
-    frappe.msgprint(test)
+    frappe.msgprint(str(SymfoniaCustomerObj.Name))
 #    frappe.msgprint(str(customer.name))
