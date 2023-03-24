@@ -75,8 +75,9 @@ class SymfoniaCustomerModel:
 
 
     def get_symfonia_customer_model(self):
-        jsonData = self.__customer_model()
-        return json.loads(jsonData, object_hook=self.__SymfoniaModelDecoder)
+        data = self.__customer_model()
+        jsonToPy=json.dumps(data)
+        return json.loads(jsonToPy, object_hook=self.__SymfoniaModelDecoder)
    #     return type("Customer", (object,), data)
 
 
