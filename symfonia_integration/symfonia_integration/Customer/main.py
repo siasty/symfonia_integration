@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 import frappe
 import json
-from Customer.model import *
+from symfonia_integration.Customer.model import *
 from frappe.contacts.doctype.address.address import Address
 from frappe.contacts.doctype.contact.contact import Contact
 
