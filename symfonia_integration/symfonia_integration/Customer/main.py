@@ -1,9 +1,9 @@
 from __future__ import unicode_literals
 import frappe
 import json
-from symfonia_integration.Customer.model import *
 from frappe.contacts.doctype.address.address import Address
 from frappe.contacts.doctype.contact.contact import Contact
+from symfonia_integration.symfonia_integration.symfonia_integration.Customer.model import SymfoniaCustomerModel
 
 
 def addCustomer(customer, state):
