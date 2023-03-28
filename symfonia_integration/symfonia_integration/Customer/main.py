@@ -11,8 +11,9 @@ def addCustomer(customer, state):
     SymfoniaCustomerObj = SymfoniaObj.get_symfonia_hmf_contractor_model()
 
     meta = get_meta("Customer")
-   # jsonstr=json.dumps(vars(meta))
-    frappe.msgprint(str(meta))
+    meta_dict = meta.as_dict()
+    meta_json = json.dumps(meta_dict, indent=4)
+    frappe.msgprint(meta_json)
     
     
     
