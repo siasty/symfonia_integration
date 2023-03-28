@@ -5,11 +5,6 @@ from frappe.contacts.doctype.address.address import Address
 from frappe.contacts.doctype.contact.contact import Contact
 from symfonia_integration.symfonia_integration.Customer.model import SymfoniaContractorModel
 from frappe.desk.form.meta import get_meta
-from datetime import datetime
-
-def date_converter(o):
-    if isinstance(o, datetime):
-        return o.__str__()
 
 def addCustomer(customer, state):
     SymfoniaObj = SymfoniaContractorModel()
@@ -17,8 +12,10 @@ def addCustomer(customer, state):
 
     meta = get_meta("Customer")
     meta_dict = meta.fields
-    meta_json = json.dumps(meta_dict, indent=4)
-#    meta_json = json.dumps(meta_dict, default=date_converter)
+    my_list = []
+    for field in meta_dict:
+        my_list.append(field.fieldname)
+    meta_json = json.dumps(my_list, indent=4)
     frappe.msgprint(meta_json)
     
     
