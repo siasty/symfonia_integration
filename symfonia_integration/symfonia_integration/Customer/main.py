@@ -5,6 +5,7 @@ from frappe.contacts.doctype.address.address import Address
 from frappe.contacts.doctype.contact.contact import Contact
 from symfonia_integration.symfonia_integration.Customer.model import SymfoniaContractorModel
 from frappe.desk.form.meta import get_meta
+from datetime import datetime
 
 def date_converter(o):
     if isinstance(o, datetime):
