@@ -10,13 +10,13 @@ def addCustomer(customer, state):
     SymfoniaObj = SymfoniaContractorModel()
     SymfoniaCustomerObj = SymfoniaObj.get_symfonia_hmf_contractor_model()
 
-    meta = get_meta("Customer")
-    meta_dict = meta.fields
-    my_list = []
-    for field in meta_dict:
-        my_list.append(field.fieldname)
-    meta_json = json.dumps(my_list, indent=4)
-    frappe.msgprint(meta_json)
+    # meta = get_meta("Customer")
+    # meta_dict = meta.fields
+    # my_list = []
+    # for field in meta_dict:
+    #     my_list.append(field.fieldname)
+    # meta_json = json.dumps(my_list, indent=4)
+    # frappe.msgprint(meta_json)
     
     
     
@@ -34,6 +34,7 @@ def addCustomer(customer, state):
     # else:  
     #     if customer.customer_primary_contact is not None:
     #         contact = Contact.get(customer.customer_primary_contact)
-    # jsonstr=json.dumps(vars(SymfoniaCustomerObj))
-    # frappe.msgprint(jsonstr)
+    test = SymfoniaObj.set_maping(customer)
+    jsonstr=json.dumps(vars(test))
+    frappe.msgprint(jsonstr)
 #    frappe.msgprint(str(customer.name))
