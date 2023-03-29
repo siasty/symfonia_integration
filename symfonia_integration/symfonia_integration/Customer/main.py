@@ -3,7 +3,7 @@ import frappe
 import json
 from frappe.contacts.doctype.address.address import Address
 from frappe.contacts.doctype.contact.contact import Contact
-from symfonia_integration.symfonia_integration.Customer.model import SymfoniaContractorModel
+from symfonia_integration.symfonia_integration.Customer.model import SymfoniaContractorModel,SymfoniaModules
 from frappe.desk.form.meta import get_meta
 
 def addCustomer(customer, state):
@@ -34,7 +34,7 @@ def addCustomer(customer, state):
     # else:  
     #     if customer.customer_primary_contact is not None:
     #         contact = Contact.get(customer.customer_primary_contact)
-    test = SymfoniaObj.set_maping(customer)
+    test = SymfoniaObj.set_maping(customer,SymfoniaModules.HMF)
     jsonstr=json.dumps(vars(test))
     frappe.msgprint(jsonstr)
 #    frappe.msgprint(str(customer.name))
