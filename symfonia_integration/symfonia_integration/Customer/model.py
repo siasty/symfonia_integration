@@ -149,7 +149,8 @@ class SymfoniaContractorModel:
                 return self.__get_symfonia_hmf_contractor_model()
 
     def set_maping(self, customer, modyleType):
-        mapper.add(SymfoniaObjectConvert(customer),
-                   self.__get_contractor_model_by_type(modyleType),
-                   fields_mapping = self.__get_symfonia_map_fields(modyleType))
-        return mapper.map(customer, use_deepcopy = False)
+        return str(modyleType)
+        # mapper.add(SymfoniaObjectConvert(customer),
+        #            self.__get_contractor_model_by_type(modyleType),
+        #            fields_mapping = self.__get_symfonia_map_fields(modyleType))
+        # return mapper.map(customer, use_deepcopy = False)
