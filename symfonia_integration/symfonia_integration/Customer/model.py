@@ -118,7 +118,7 @@ class SymfoniaContractorModel:
 
     def set_maping(self, customer):
         CustomerMeta = get_meta("Customer")
-        mapper.add(CustomerMeta.fields,
+        mapper.add(type(customer),
                    self.get_symfonia_hmf_contractor_model(),
                    fields_mapping={"Code": "Customer.name",
                                    "Name": "Customer.customer_name",
