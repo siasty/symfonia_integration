@@ -141,15 +141,15 @@ class SymfoniaContractorModel:
         return SymfoniaObjectConvert(self.__FKF_Contractor_Model())
 
     def __get_contractor_model_by_type(self, modelType: SymfoniaModules):
-        switch = {
-            SymfoniaModules.FKF: self.__get_symfonia_fkf_contractor_model(),
-            SymfoniaModules.HMF: self.__get_symfonia_hmf_contractor_model()
-        }
-        return switch.get(modelType)
+        match modelType:
+            case SymfoniaModules.FKF:
+                return self.__get_symfonia_fkf_contractor_model()
+            case SymfoniaModules.HMF: 
+                return self.__get_symfonia_hmf_contractor_model()
 
-    def set_maping(self, customer, modyleType: SymfoniaModules):
+    def set_maping(self, customer, modyleType):
         CustomerMeta = get_meta("Customer")
         mapper.add(SymfoniaObjectConvert(customer),
                    self.__get_contractor_model_by_type(modyleType),
-                   fields_mapping = self.__get_symfonia_map_fields(SymfoniaModules.HMF))
+                   fields_mapping = self.__get_symfonia_map_fields(modyleType))
         return mapper.map(customer, use_deepcopy = False)
