@@ -8,7 +8,9 @@ class SymfoniaModules:
     HMF = 0
     FKF = 1
 
+
 SymfoniaModules = SymfoniaModules()
+
 
 class SymfoniaContractorModel:
     def __HMF_Contractor_Model(self):
@@ -145,11 +147,16 @@ class SymfoniaContractorModel:
         match modelType:
             case SymfoniaModules.FKF:
                 return self.__get_symfonia_fkf_contractor_model()
-            case SymfoniaModules.HMF: 
+            case SymfoniaModules.HMF:
                 return self.__get_symfonia_hmf_contractor_model()
 
     def set_maping(self, customer, modyleType):
-        mapper.add(SymfoniaObjectConvert(customer),
-                   self.__get_contractor_model_by_type(modyleType),
-                   fields_mapping = self.__get_symfonia_map_fields(modyleType))
-        return mapper.map(customer, use_deepcopy = False)
+        meta = get_meta("Customer")
+        my_list = []
+        for field in meta.fields:
+            my_list.append({field.fieldname: ""})
+        meta_json = json.dumps(my_list, indent=4)
+        mapper.add(SymfoniaObjectConvert(meta_json),
+               self.__get_contractor_model_by_type(modyleType),
+               fields_mapping=self.__get_symfonia_map_fields(modyleType))
+        return mapper.map(customer, use_deepcopy=False)

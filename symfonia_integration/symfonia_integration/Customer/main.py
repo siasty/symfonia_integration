@@ -9,13 +9,7 @@ from frappe.desk.form.meta import get_meta
 def addCustomer(customer, state):
     SymfoniaObj = SymfoniaContractorModel()
 
-    # meta = get_meta("Customer")
-    # meta_dict = meta.fields
-    # my_list = []
-    # for field in meta_dict:
-    #     my_list.append(field.fieldname)
-    # meta_json = json.dumps(my_list, indent=4)
-    # frappe.msgprint(meta_json)
+    
     
     
     
