@@ -34,7 +34,6 @@ def addCustomer(customer, state):
     #     if customer.customer_primary_contact is not None:
     #         contact = Contact.get(customer.customer_primary_contact)
     test = SymfoniaObj.set_maping(customer,SymfoniaModules.HMF)
-    frappe.msgprint(test)
-  #  jsonstr=json.dumps(vars(test))
-  #  frappe.msgprint(jsonstr)
+    jsonstr=json.dumps(vars(test))
+    frappe.msgprint(jsonstr)
 #    frappe.msgprint(str(customer.name))
