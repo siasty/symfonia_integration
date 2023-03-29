@@ -116,23 +116,23 @@ class SymfoniaContractorModel:
         }
 
     def __get_symfonia_map_fields(self, type: SymfoniaModules):
-        switch = {
-            SymfoniaModules.FKF: {
-                "Code": "Customer.name",
-                "Name": "Customer.customer_name",
-                "NIP": "Customer.tax_id",
-                #   "Regon":"Customer.regon",
-                #   "Pesel":"Customer.pesel"
-            },
-            SymfoniaModules.HMF: {
-                "Code": "Customer.name",
-                "Name": "Customer.customer_name",
-                "NIP": "Customer.tax_id",
-                "Regon": "Customer.regon",
-                "Pesel": "Customer.pesel"
-            }
-        }
-        return switch.get(type)
+        match type:
+            case SymfoniaModules.FKF:
+                return {
+                    "Code": "Customer.name",
+                    "Name": "Customer.customer_name",
+                    "NIP": "Customer.tax_id",
+                    #   "Regon":"Customer.regon",
+                    #   "Pesel":"Customer.pesel"
+                }
+            case SymfoniaModules.HMF:
+                return {
+                    "Code": "Customer.name",
+                    "Name": "Customer.customer_name",
+                    "NIP": "Customer.tax_id",
+                    "Regon": "Customer.regon",
+                    "Pesel": "Customer.pesel"
+                }
 
     def __get_symfonia_hmf_contractor_model(self):
         return SymfoniaObjectConvert(self.__HMF_Contractor_Model())
@@ -147,9 +147,9 @@ class SymfoniaContractorModel:
         }
         return switch.get(modelType)
 
-    def set_maping(self, customer, modyleType:SymfoniaModules):
+    def set_maping(self, customer, modyleType: SymfoniaModules):
         CustomerMeta = get_meta("Customer")
         mapper.add(SymfoniaObjectConvert(customer),
                    self.__get_contractor_model_by_type(modyleType),
-                   fields_mapping=self.__get_symfonia_map_fields(SymfoniaModules.HMF))
-        return mapper.map(customer, use_deepcopy=False)
+                   fields_mapping = self.__get_symfonia_map_fields(SymfoniaModules.HMF))
+        return mapper.map(customer, use_deepcopy = False)
