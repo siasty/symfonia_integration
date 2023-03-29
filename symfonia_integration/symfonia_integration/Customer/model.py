@@ -4,6 +4,11 @@ from automapper import mapper
 from frappe.desk.form.meta import get_meta
 
 
+class SymfoniaModules:
+    HMF = 0
+    FKF = 1
+
+
 class SymfoniaContractorModel:
     def __HMF_Contractor_Model(self):
         return {
@@ -110,20 +115,41 @@ class SymfoniaContractorModel:
             "BankInfo": None
         }
 
-    def get_symfonia_hmf_contractor_model(self):
+    def __get_symfonia_map_fields(self, type: SymfoniaModules):
+        switch = {
+            SymfoniaModules.FKF: {
+                "Code": "Customer.name",
+                "Name": "Customer.customer_name",
+                "NIP": "Customer.tax_id",
+                #   "Regon":"Customer.regon",
+                #   "Pesel":"Customer.pesel"
+            },
+            SymfoniaModules.HMF: {
+                "Code": "Customer.name",
+                "Name": "Customer.customer_name",
+                "NIP": "Customer.tax_id",
+                "Regon": "Customer.regon",
+                "Pesel": "Customer.pesel"
+            }
+        }
+        return switch.get(type)
+
+    def __get_symfonia_hmf_contractor_model(self):
         return SymfoniaObjectConvert(self.__HMF_Contractor_Model())
 
-    def get_symfonia_fkf_contractor_model(self):
+    def __get_symfonia_fkf_contractor_model(self):
         return SymfoniaObjectConvert(self.__FKF_Contractor_Model())
 
-    def set_maping(self, customer):
+    def __get_contractor_model_by_type(self, modelType: SymfoniaModules):
+        switch = {
+            SymfoniaModules.FKF: self.__get_symfonia_fkf_contractor_model(),
+            SymfoniaModules.HMF: self.__get_symfonia_hmf_contractor_model()
+        }
+        return switch.get(modelType)
+
+    def set_maping(self, customer, modyleType:SymfoniaModules):
         CustomerMeta = get_meta("Customer")
-        mapper.add(type(customer),
-                   self.get_symfonia_hmf_contractor_model(),
-                   fields_mapping={"Code": "Customer.name",
-                                   "Name": "Customer.customer_name",
-                                   "NIP": "Customer.tax_id",
-                                #   "Regon":"Customer.regon",
-                                #   "Pesel":"Customer.pesel"
-                                   })
+        mapper.add(SymfoniaObjectConvert(customer),
+                   self.__get_contractor_model_by_type(modyleType),
+                   fields_mapping=self.__get_symfonia_map_fields(SymfoniaModules.HMF))
         return mapper.map(customer, use_deepcopy=False)
