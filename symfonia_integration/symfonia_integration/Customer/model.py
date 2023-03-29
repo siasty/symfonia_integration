@@ -141,7 +141,7 @@ class SymfoniaContractorModel:
     def __get_symfonia_fkf_contractor_model(self):
         return SymfoniaObjectConvert(self.__FKF_Contractor_Model())
 
-    def __get_contractor_model_by_type(self, modelType: SymfoniaModules):
+    def __get_contractor_model_by_type(self, modelType):
         match modelType:
             case SymfoniaModules.FKF:
                 return self.__get_symfonia_fkf_contractor_model()
@@ -149,7 +149,6 @@ class SymfoniaContractorModel:
                 return self.__get_symfonia_hmf_contractor_model()
 
     def set_maping(self, customer, modyleType):
-        CustomerMeta = get_meta("Customer")
         mapper.add(SymfoniaObjectConvert(customer),
                    self.__get_contractor_model_by_type(modyleType),
                    fields_mapping = self.__get_symfonia_map_fields(modyleType))
