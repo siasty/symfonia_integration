@@ -8,6 +8,7 @@ class SymfoniaModules:
     HMF = 0
     FKF = 1
 
+SymfoniaModules = SymfoniaModules()
 
 class SymfoniaContractorModel:
     def __HMF_Contractor_Model(self):
