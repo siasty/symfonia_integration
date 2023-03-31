@@ -16,8 +16,8 @@ class SymfoniaContractorModel:
         match type:
             case SymfoniaModules.HMF:
                 return {
-                    "Code": "Customer.name",
-                    "Name": "Customer.customer_name",
+                    "Code": "customer.name",
+                    "Name": "ErpNextCustomerModel.customer_name",
                     "NIP": "Customer.tax_id",
                     "Regon": "Customer.regon",
                     "Pesel": "Customer.pesel"
