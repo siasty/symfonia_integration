@@ -24,16 +24,24 @@ class HMFCustomerModel():
     Due: int
     Obligation: int
     PaymentRegistry: None
-    PaymentForm: PaymentForm
-    Contact: Contact
-    DefaultAddress: DefaultAddress
-    CorrespondenceAddress: CorrespondenceAddress
-    BankInfo: BankInfo
+    PaymentForm: None
+    Contact: None
+    DefaultAddress: None
+    CorrespondenceAddress: None
+    BankInfo: None
     def __post_init__(self):
-        if self.Id is None:
-            self.Id = '0'
         if self.PaymentRegistry is None:
            self.PaymentRegistry = PaymentRegistry()
+        if self.PaymentForm is None:
+           self.PaymentForm = PaymentForm()
+        if self.Contact is None:
+           self.Contact = Contact()
+        if self.DefaultAddress is None:
+           self.DefaultAddress = DefaultAddress()
+        if self.CorrespondenceAddress is None:
+           self.CorrespondenceAddress = CorrespondenceAddress()
+        if self.BankInfo is None:
+           self.BankInfo = BankInfo()
        
 
 
