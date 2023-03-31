@@ -32,8 +32,7 @@ class HMFCustomerModel():
     def __post_init__(self):
         if self.Id is None:
             self.Id = '0'
-        if self.PaymentRegistry is None:
-            self.PaymentRegistry = PaymentRegistry()
+       
 
 
 @dataclass
@@ -43,6 +42,7 @@ class PaymentRegistry:
     def __post_init__(self):
         if self.Id is None:
             self.Id = '0'
+            self.Code = ''
 
 
 @dataclass
