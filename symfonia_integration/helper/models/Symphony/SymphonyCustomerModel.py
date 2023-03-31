@@ -23,7 +23,7 @@ class HMFCustomerModel():
     Marker: int
     Due: int
     Obligation: int
-    PaymentRegistry: PaymentRegistry
+    PaymentRegistry: None
     PaymentForm: PaymentForm
     Contact: Contact
     DefaultAddress: DefaultAddress
@@ -32,6 +32,8 @@ class HMFCustomerModel():
     def __post_init__(self):
         if self.Id is None:
             self.Id = '0'
+        if self.PaymentRegistry is None:
+           self.PaymentRegistry = PaymentRegistry()
        
 
 
