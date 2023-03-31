@@ -1,7 +1,7 @@
 import json
 from symfonia_integration.helper.funtions import SymfoniaObjectConvert
-from symfonia_integration.helper.models.ErpNextCustomerModel import ErpNextCustomerModel
-from symfonia_integration.helper.models.SymphoniaCustomerModel import HMFCustomerModel
+from symfonia_integration.helper.models.ErpNext.ErpNextCustomerModel import ErpNextCustomerModel
+from symfonia_integration.helper.models.Symphony.SymphonyCustomerModel import HMFCustomerModel
 from automapper import mapper
 from frappe.desk.form.meta import get_meta
 
@@ -9,9 +9,6 @@ from frappe.desk.form.meta import get_meta
 class SymfoniaModules:
     HMF = 0
     FKF = 1
-
-
-# SymfoniaModules = SymfoniaModules()
 
 
 class SymfoniaContractorModel:

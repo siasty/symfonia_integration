@@ -29,19 +29,27 @@ class HMFCustomerModel():
     DefaultAddress: DefaultAddress
     CorrespondenceAddress: CorrespondenceAddress
     BankInfo: BankInfo
+    def __post_init__(self):
+        if self.Id is None:
+            self.Id = '0'
 
 
 @dataclass
 class PaymentRegistry:
     Id: int
     Code: str
+    def __post_init__(self):
+        if self.Id is None:
+            self.Id = '0'
 
 
 @dataclass
 class PaymentForm:
     Id: int
     Client: int
-
+    def __post_init__(self):
+        if self.Id is None:
+            self.Id = '0'
 
 @dataclass
 class Contact:

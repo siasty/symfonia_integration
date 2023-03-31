@@ -8,11 +8,6 @@ from frappe.desk.form.meta import get_meta
 
 def addCustomer(customer, state):
     SymfoniaObj = SymfoniaContractorModel()
-
-    
-    
-    
-    
     # try:
     #     customer.customer_primary_address
     # except NameError:
