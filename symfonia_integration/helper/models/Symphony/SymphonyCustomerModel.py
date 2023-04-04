@@ -3,6 +3,9 @@ from dataclasses import dataclass
 
 @dataclass
 class HMFCustomerModel():
+    def __init__(self):
+        self = {}
+        
     Id: int
     Active: bool
     Code: str
