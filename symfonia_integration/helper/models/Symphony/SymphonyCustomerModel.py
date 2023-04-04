@@ -1,9 +1,9 @@
 from dataclasses import dataclass
+from typing import Optional
 
-
-@dataclass(init=False)
+@dataclass
 class HMFCustomerModel:
-    Id: int
+    Id: Optional[int] = 0
     Active: bool
     Code: str
     Name: str
