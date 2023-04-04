@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 
-@dataclass
+@dataclass(init=False)
 class HMFCustomerModel:
     Id: int
     Active: bool
