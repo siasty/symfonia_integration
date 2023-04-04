@@ -3,18 +3,25 @@ from automapper import mapper
 from dataclasses import dataclass
 from typing import List
 
-
+@dataclass
 class ErpNextCustomerModel:
-    def __init__(self, name:str, customer_name:str,tax_id:str):
-        self.name = name
-        self.customer_name = customer_name
-        self.tax_id = tax_id
+    name:str
+    customer_name:str
+    tax_id:str
+    # def __init__(self, name:str, customer_name:str,tax_id:str):
+    #     self.name = name
+    #     self.customer_name = customer_name
+    #     self.tax_id = tax_id
 
+@dataclass
 class HMFCustomerModel:
-    def __init__(self,Code:str,Name:str,NIP:str):
-        self.Code = Code
-        self.Name = Name
-        self.NIP = NIP
+    Code:str
+    Name:str
+    NIP:str
+    # def __init__(self,Code:str,Name:str,NIP:str):
+    #     self.Code = Code
+    #     self.Name = Name
+    #     self.NIP = NIP
 
 
 class SymfoniaModules:
@@ -46,16 +53,21 @@ class SymfoniaContractorModel:
         return mapper.map(customer, use_deepcopy=False)
 
 
-customer = ErpNextCustomerModel(
-    name = "Cazacu Sergiu",
-    customer_name = "Cazacu Sergiu",
-    tax_id = "8992489312"
-)
-
+# customer = ErpNextCustomerModel(
+#     name = "Cazacu Sergiu",
+#     customer_name = "Cazacu Sergiu",
+#     tax_id = "8992489312"
+# )
+customer = {
+      "name": "Cazacu Sergiu",
+      "customer_name": "Cazacu Sergiu",
+      "tax_id": "8992489312"
+}
+cust = mapper.to(ErpNextCustomerModel).map(customer)
 
 
 
 SymfoniaObj = SymfoniaContractorModel()
-test = SymfoniaObj.set_maping(customer, SymfoniaModules.HMF)
+test = SymfoniaObj.set_maping(cust, SymfoniaModules.HMF)
 jsonstr = json.dumps(vars(test))
 print(jsonstr)

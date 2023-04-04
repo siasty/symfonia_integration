@@ -16,11 +16,11 @@ class SymfoniaContractorModel:
         match type:
             case SymfoniaModules.HMF:
                 return {
-                    "Code": "customer.name",
+                    "Code": "ErpNextCustomerModel.name",
                     "Name": "ErpNextCustomerModel.customer_name",
-                    "NIP": "Customer.tax_id",
-                    "Regon": "Customer.regon",
-                    "Pesel": "Customer.pesel"
+                    "NIP": "ErpNextCustomerModel.tax_id",
+                    "Regon": "ErpNextCustomerModel.regon",
+                    "Pesel": "ErpNextCustomerModel.pesel"
                 }
  
     def __get_contractor_model_by_type(self, modelType):

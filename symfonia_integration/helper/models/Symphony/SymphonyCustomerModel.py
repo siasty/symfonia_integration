@@ -2,10 +2,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class HMFCustomerModel():
-    def __init__(self):
-        self = {}
-        
+class HMFCustomerModel:
     Id: int
     Active: bool
     Code: str
@@ -34,17 +31,17 @@ class HMFCustomerModel():
     BankInfo: None
     def __post_init__(self):
         if self.PaymentRegistry is None:
-           self.PaymentRegistry = PaymentRegistry()
+           self.PaymentRegistry = PaymentRegistry
         if self.PaymentForm is None:
-           self.PaymentForm = PaymentForm()
+           self.PaymentForm = PaymentForm
         if self.Contact is None:
-           self.Contact = Contact()
+           self.Contact = Contact
         if self.DefaultAddress is None:
-           self.DefaultAddress = DefaultAddress()
+           self.DefaultAddress = DefaultAddress
         if self.CorrespondenceAddress is None:
-           self.CorrespondenceAddress = CorrespondenceAddress()
+           self.CorrespondenceAddress = CorrespondenceAddress
         if self.BankInfo is None:
-           self.BankInfo = BankInfo()
+           self.BankInfo = BankInfo
        
 
 
