@@ -1,9 +1,8 @@
 from dataclasses import dataclass
-from typing import Optional
 
 @dataclass
 class HMFCustomerModel:
-    Id: Optional[int] = None
+    Id: int
     Active: bool
     Code: str
     Name: str
@@ -30,6 +29,8 @@ class HMFCustomerModel:
     CorrespondenceAddress: None
     BankInfo: None
     def __post_init__(self):
+        if self.Id is None:
+           self.Id = 0
         if self.PaymentRegistry is None:
            self.PaymentRegistry = PaymentRegistry
         if self.PaymentForm is None:
