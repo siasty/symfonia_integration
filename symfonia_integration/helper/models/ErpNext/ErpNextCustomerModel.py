@@ -2,7 +2,10 @@ from dataclasses import dataclass
 
 
 @dataclass
-class ErpNextCustomerModel(init=False):
+class ErpNextCustomerModel():
+    def __init__(self):
+        self = {}
+        
     name: str
     owner: str
     creation: str
