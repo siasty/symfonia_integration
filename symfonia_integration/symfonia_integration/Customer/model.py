@@ -26,11 +26,12 @@ class SymfoniaContractorModel:
     def __get_contractor_model_by_type(self, modelType):
         match modelType:
             case SymfoniaModules.HMF:
-                return HMFCustomerModel()
+                return HMFCustomerModel
 
     def set_maping(self, customer, modyleType):
+        cust = mapper.to(ErpNextCustomerModel).map(customer)
 
-        mapper.add(ErpNextCustomerModel(),
+        mapper.add(ErpNextCustomerModel,
                    self.__get_contractor_model_by_type(modyleType),
                    fields_mapping=self.__get_symfonia_map_fields(modyleType))
-        return mapper.map(customer, use_deepcopy=False)
+        return mapper.map(cust, use_deepcopy=False)

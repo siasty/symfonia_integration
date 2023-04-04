@@ -3,10 +3,7 @@ from typing import List
 
 
 @dataclass
-class ErpNextCustomerModel():
-    def __init__(self):
-        self = {}
-
+class ErpNextCustomerModel:
     name: str
     owner: str
     creation: str
