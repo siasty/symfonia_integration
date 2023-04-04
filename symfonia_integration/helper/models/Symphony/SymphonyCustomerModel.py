@@ -1,48 +1,34 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 @dataclass
 class HMFCustomerModel:
-    Id: int
-    Active: bool
-    Code: str
+    Id: int = field(init=False)
+    Active: bool = field(init=False)
+    Code: str 
     Name: str
-    Vies: bool
-    VATTaxPayer: bool
-    NIP: str
-    Pesel: str
-    CreditLimit: bool
-    MaxCreditValue: int
-    CreditCurrency: str
-    PriceNegotiation: bool
-    DefaultDiscountPercent: int
-    PriceType: int
-    PriceKind: int
-    Type: int
-    Note: str
-    Marker: int
-    Due: int
-    Obligation: int
-    PaymentRegistry: None
-    PaymentForm: None
-    Contact: None
-    DefaultAddress: None
-    CorrespondenceAddress: None
-    BankInfo: None
-    def __post_init__(self):
-        if self.Id is None:
-           self.Id = 0
-        if self.PaymentRegistry is None:
-           self.PaymentRegistry = PaymentRegistry
-        if self.PaymentForm is None:
-           self.PaymentForm = PaymentForm
-        if self.Contact is None:
-           self.Contact = Contact
-        if self.DefaultAddress is None:
-           self.DefaultAddress = DefaultAddress
-        if self.CorrespondenceAddress is None:
-           self.CorrespondenceAddress = CorrespondenceAddress
-        if self.BankInfo is None:
-           self.BankInfo = BankInfo
+    Vies: bool = field(init=False) 
+    VATTaxPayer: bool  = field(init=False)
+    NIP: str = field(init=False)
+    Pesel: str = field(init=False)
+    CreditLimit: bool = field(init=False)
+    MaxCreditValue: int = field(init=False)
+    CreditCurrency: str = field(init=False)
+    PriceNegotiation: bool = field(init=False)
+    DefaultDiscountPercent: int = field(init=False)
+    PriceType: int = field(init=False) 
+    PriceKind: int = field(init=False)
+    Type: int = field(init=False)
+    Note: str = field(init=False)
+    Marker: int = field(init=False)
+    Due: int = field(init=False)
+    Obligation: int = field(init=False)
+    PaymentRegistry: PaymentRegistry = field(init=False)
+    PaymentForm: PaymentForm = field(init=False) 
+    Contact: Contact = field(init=False)
+    DefaultAddress: DefaultAddress = field(init=False)
+    CorrespondenceAddress: CorrespondenceAddress = field(init=False) 
+    BankInfo: BankInfo = field(init=False)       
+
        
 
 
