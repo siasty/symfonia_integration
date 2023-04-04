@@ -3,7 +3,7 @@ from typing import Optional
 
 @dataclass
 class HMFCustomerModel:
-    Id: Optional[int] = 0
+    Id: Optional[int] = None
     Active: bool
     Code: str
     Name: str
