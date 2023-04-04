@@ -1,11 +1,12 @@
 from dataclasses import dataclass
+from typing import List
 
 
 @dataclass
 class ErpNextCustomerModel():
     def __init__(self):
         self = {}
-        
+
     name: str
     owner: str
     creation: str
@@ -42,7 +43,7 @@ class ErpNextCustomerModel():
     is_frozen: int
     disabled: int
     doctype: str
-    accounts: list
-    sales_team: list
-    credit_limits: list
-    companies: list
+    accounts: List
+    sales_team: List
+    credit_limits: List
+    companies: List
