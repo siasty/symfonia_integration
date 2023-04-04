@@ -40,6 +40,9 @@ class ErpNextCustomerModel:
     is_frozen: int
     disabled: int
     doctype: str
+    regon:str
+    pesel:str
+    split_payment:int
     accounts: List
     sales_team: List
     credit_limits: List

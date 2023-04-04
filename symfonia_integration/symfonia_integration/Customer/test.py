@@ -53,11 +53,7 @@ class SymfoniaContractorModel:
         return mapper.map(customer, use_deepcopy=False)
 
 
-# customer = ErpNextCustomerModel(
-#     name = "Cazacu Sergiu",
-#     customer_name = "Cazacu Sergiu",
-#     tax_id = "8992489312"
-# )
+
 customer = {
       "name": "Cazacu Sergiu",
       "customer_name": "Cazacu Sergiu",
