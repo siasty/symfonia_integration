@@ -15,33 +15,35 @@ class ErpNextCustomerModel:
 
 @dataclass
 class HMFCustomerModel:
-    Id: int = field(init=False)
-    Active: bool = field(init=False)
+    Id: int 
+    Active: bool
     Code: str 
     Name: str
-    Vies: bool = field(init=False) 
-    VATTaxPayer: bool  = field(init=False)
-    NIP: str = field(init=False)
-    Pesel: str = field(init=False)
-    CreditLimit: bool = field(init=False)
-    MaxCreditValue: int = field(init=False)
-    CreditCurrency: str = field(init=False)
-    PriceNegotiation: bool = field(init=False)
-    DefaultDiscountPercent: int = field(init=False)
-    PriceType: int = field(init=False) 
-    PriceKind: int = field(init=False)
-    Type: int = field(init=False)
-    Note: str = field(init=False)
-    Marker: int = field(init=False)
-    Due: int = field(init=False)
-    Obligation: int = field(init=False)
-    PaymentRegistry: PaymentRegistry = field(init=False)
-    PaymentForm: PaymentForm = field(init=False) 
-    Contact: Contact = field(init=False)
-    DefaultAddress: DefaultAddress = field(init=False)
-    CorrespondenceAddress: CorrespondenceAddress = field(init=False) 
-    BankInfo: BankInfo = field(init=False)       
-
+    Vies: bool 
+    VATTaxPayer: bool 
+    NIP: str 
+    Pesel: str 
+    CreditLimit: bool 
+    MaxCreditValue: int 
+    CreditCurrency: str 
+    PriceNegotiation: bool 
+    DefaultDiscountPercent: int 
+    PriceType: int  
+    PriceKind: int 
+    Type: int 
+    Note: str 
+    Marker: int 
+    Due: int 
+    Obligation: int 
+    PaymentRegistry: PaymentRegistry 
+    PaymentForm: PaymentForm  
+    Contact: Contact 
+    DefaultAddress: DefaultAddress 
+    CorrespondenceAddress: CorrespondenceAddress 
+    BankInfo: BankInfo   
+    def __init__(self, name: str, Id: int = 0):
+        self.name = name
+        self.Id = Id
 
 @dataclass
 class PaymentRegistry:
