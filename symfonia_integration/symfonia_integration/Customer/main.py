@@ -9,8 +9,10 @@ from frappe.contacts.doctype.contact.contact import Contact
 def addCustomer(customer, state):
     url = "http://localhost:9000/api/Contractors/Create?syncFK=True"
 
-    primary_address = frappe.get_doc("Customer", customer.name ).get_primary_address()
-    frappe.msgprint(json.dumps(primary_address))
+    if customer.primary_address: 
+        address = Address(customer.primary_address)
+        address_dict = address.as_dict()
+
     # payload = json.dumps({
     #     "Active": not bool(customer.disabled),
     #     "Code": customer.name,
