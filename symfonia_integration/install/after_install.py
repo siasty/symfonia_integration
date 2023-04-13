@@ -34,11 +34,11 @@ def install():
         ]
     }
     create_custom_fields(custom_fields)
-    doc = frappe.get_doc("DocType", "Address")
-    field = doc.get("fields", {"fieldname": "address_line1"})
-    print(str(field))
-    field.label = _("Ulica")
-    # doc.save()
+    doctype = "Address"
+    field = "address_line1"
+    new_label = "Ulica"
+
+    frappe.db.set_value(doctype, field, 'label', _(new_label))
 
 
 
