@@ -1,47 +1,17 @@
+import json
 import frappe
 from frappe import _
 from frappe.custom.doctype.custom_field.custom_field import create_custom_fields
-
+from symfonia_integration.install.translations import translations
+from symfonia_integration.install.customfields import customFileds
 
 def install():
-    custom_fields = {
-        "Customer": [
-            {
-                "label": "Regon",
-                "fieldname": "regon",
-                "fieldtype": "Data",
-                "insert_after": "tax_id"
-            },
-            {
-                "label": "Pesel",
-                "fieldname": "pesel",
-                "fieldtype": "Data",
-                "insert_after": "regon"
-            },
-            {
-                "label": "Split Payment",
-                "fieldname": "split_payment",
-                "fieldtype": "Check",
-                "default": 0,
-                "insert_after": "pesel"
-            },
-            {
-                "label": "Symfonia Sync",
-                "fieldname": "symfonia_sync",
-                "fieldtype": "Check",
-                "default": 0
-            }
-        ]
-    }
-    create_custom_fields(custom_fields)
-    doctype = "Address"
-    field = "address_line1"
-    new_label = "Ulica"
+    
+    customObj = customFileds()
+    translationsObj = translations()
+    
+    create_custom_fields(customObj.get_custom_fields_to_add())
+    customObj.change_label_name(customObj.get_fields_for_modification_label())
+    
+    translationsObj.add_translation_list(translationsObj.get_translation_list())
 
-    frappe.db.set_value(doctype, field, 'label', _(new_label))
-
-
-
-
-def change_label_name(doc):
-    frappe.db.set_value('DocField', doc.name, 'label', _(doc.field_name))
